@@ -30,6 +30,7 @@ namespace TennisBookings.Web
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
+            /* *** This takes stuff from the appsettings and stuffs it into the HomePageConfiguration poco class *** */
             services.Configure<HomePageConfiguration>(Configuration.GetSection("Features:HomePage"));
 
             services.TryAddEnumerable(ServiceDescriptor.Singleton<IValidateOptions<HomePageConfiguration>, HomePageConfigurationValidation>());
